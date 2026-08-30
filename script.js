@@ -1,3 +1,9 @@
+// ==========================================
+// CONFIGURATION: Google Sheets Web App URL
+// Paste your deployed Google Apps Script Web App URL below:
+// ==========================================
+const GOOGLE_SHEETS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbzdfvS6xFffAvf-kxyRbWcmuB1UbrALHSwH6cRbQZxynrAtP9_7NYGOPKD28gFaicXIpA/exec";
+
 document.addEventListener("DOMContentLoaded", () => {
     // 1. Dynamic Year in Footer
     const yearEl = document.getElementById("year");
@@ -72,24 +78,70 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     window.addEventListener("scroll", updateActiveNav, { passive: true });
 
-    // 5. Quote Form Submission & Toast Alert
+    // 5. Quote Form Submission -> Google Sheets Web App
     const quoteForm = document.getElementById("quoteForm");
     const toast = document.getElementById("toast");
 
     if (quoteForm) {
-        quoteForm.addEventListener("submit", (e) => {
+        quoteForm.addEventListener("submit", async (e) => {
             e.preventDefault();
 
-            // Display Toast notification
-            if (toast) {
-                toast.classList.add("show");
-                setTimeout(() => {
-                    toast.classList.remove("show");
-                }, 4500);
+            const submitBtn = quoteForm.querySelector("button[type='submit']");
+            const originalBtnContent = submitBtn ? submitBtn.innerHTML : "Send Export Inquiry";
+
+            // Collect form data
+            const formData = new FormData(quoteForm);
+            const data = {
+                name: formData.get("name") || "",
+                company: formData.get("company") || "",
+                email: formData.get("email") || "",
+                country: formData.get("country") || "",
+                product: formData.get("product") || "",
+                message: formData.get("message") || "",
+                submittedAt: new Date().toLocaleString()
+            };
+
+            // Loading state
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = `Sending Inquiry... <i class="fa-solid fa-spinner fa-spin"></i>`;
             }
 
-            // Reset the form fields
-            quoteForm.reset();
+            try {
+                if (GOOGLE_SHEETS_WEBAPP_URL && GOOGLE_SHEETS_WEBAPP_URL.trim() !== "") {
+                    // Send data to Google Apps Script Web App (no-cors prevents browser CORS blocking)
+                    await fetch(GOOGLE_SHEETS_WEBAPP_URL, {
+                        method: "POST",
+                        mode: "no-cors",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(data)
+                    });
+                } else {
+                    console.info("Google Sheets Web App URL not configured in script.js yet. Simulating success.");
+                }
+
+                // Show success toast notification
+                if (toast) {
+                    toast.classList.add("show");
+                    setTimeout(() => {
+                        toast.classList.remove("show");
+                    }, 5000);
+                }
+
+                // Reset the form fields
+                quoteForm.reset();
+            } catch (error) {
+                console.error("Error submitting inquiry to Google Sheets:", error);
+                alert("There was an issue sending your inquiry. Please contact us directly via email or WhatsApp.");
+            } finally {
+                // Restore button state
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnContent;
+                }
+            }
         });
     }
 

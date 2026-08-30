@@ -87,7 +87,23 @@ button {
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+}
+
+.logo-img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(20, 37, 29, 0.08);
+    border: 1px solid rgba(20, 37, 29, 0.08);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover .logo-img {
+    transform: scale(1.05);
 }
 
 .logo-mark {
@@ -543,6 +559,9 @@ button {
     overflow: hidden;
     border: 1px solid var(--border);
     transition: 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .product-card:hover {
@@ -609,6 +628,9 @@ button {
 
 .product-content {
     padding: 27px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .product-meta-tag {
@@ -669,6 +691,7 @@ button {
     font-weight: 700;
     color: var(--green);
     transition: color 0.2s ease, transform 0.2s ease;
+    margin-top: auto;
 }
 
 .product-link:hover {
@@ -1364,6 +1387,12 @@ button {
     color: var(--green);
 }
 
+.footer-logo-img {
+    background: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
 .footer-logo .logo-text strong {
     color: white;
 }
@@ -1605,7 +1634,7 @@ button {
     position: relative;
     height: 180px;
     width: 100%;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .pillar-img {
@@ -1644,12 +1673,12 @@ button {
     padding: 5px 10px;
     border-radius: 20px;
     border: 1px solid rgba(197, 155, 85, 0.3);
-    z-index: 2;
+    z-index: 3;
 }
 
 .pillar-icon {
     position: absolute;
-    bottom: -22px;
+    bottom: -24px;
     left: 28px;
     width: 48px;
     height: 48px;
@@ -1660,15 +1689,16 @@ button {
     border-radius: 12px;
     font-size: 20px;
     border: 3px solid white;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    z-index: 3;
-    transition: background 0.3s, color 0.3s, transform 0.3s;
+    box-shadow: 0 8px 24px rgba(18, 56, 42, 0.18);
+    z-index: 10;
+    transition: background 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .pillar-card:hover .pillar-icon {
     background: var(--gold);
     color: white;
     transform: scale(1.08);
+    box-shadow: 0 10px 25px rgba(197, 155, 85, 0.35);
 }
 
 .pillar-content {
@@ -1676,6 +1706,9 @@ button {
     display: flex;
     flex-direction: column;
     flex: 1;
+    position: relative;
+    z-index: 2;
+    background: white;
 }
 
 .pillar-content h3 {
