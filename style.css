@@ -1795,12 +1795,32 @@ button {
 
 .grades-table-wrapper {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     border-radius: 10px;
     border: 1px solid #e7ebe7;
+    background: white;
+    width: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold) #f1f4f0;
+}
+
+.grades-table-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+
+.grades-table-wrapper::-webkit-scrollbar-track {
+    background: #f1f4f0;
+    border-radius: 4px;
+}
+
+.grades-table-wrapper::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 4px;
 }
 
 .grades-table {
     width: 100%;
+    min-width: 650px;
     border-collapse: collapse;
     font-size: 13px;
     text-align: left;
@@ -1813,12 +1833,25 @@ button {
     font-weight: 600;
     letter-spacing: 0.5px;
     font-size: 12px;
+    white-space: nowrap;
 }
 
 .grades-table td {
     padding: 15px 20px;
     border-bottom: 1px solid #edf1ed;
     color: var(--dark);
+    vertical-align: middle;
+}
+
+.grades-table td:nth-child(1),
+.grades-table td:nth-child(2),
+.grades-table td:nth-child(3) {
+    white-space: nowrap;
+}
+
+.grades-table td:nth-child(4) {
+    min-width: 240px;
+    line-height: 1.5;
 }
 
 .grades-table tbody tr:nth-child(even) {
@@ -1830,11 +1863,14 @@ button {
 }
 
 .grade-pill {
-    display: inline-block;
-    padding: 4px 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 14px;
     border-radius: 20px;
     font-weight: 700;
     font-size: 11px;
+    white-space: nowrap;
     background: #edf2ec;
     color: var(--green);
     border: 1px solid rgba(18, 56, 42, 0.12);
@@ -2780,6 +2816,17 @@ button {
     .form-row {
         grid-template-columns: 1fr;
         gap: 0;
+    }
+
+    .grades-block,
+    .nutrition-block {
+        padding: 24px 14px;
+        border-radius: 14px;
+        margin-bottom: 25px;
+    }
+
+    .block-header h3 {
+        font-size: 22px;
     }
 
     .footer-main {
