@@ -1863,14 +1863,19 @@ button {
 }
 
 .grade-pill {
-    display: inline-flex;
+    display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    padding: 5px 14px;
+    padding: 6px 14px;
     border-radius: 20px;
     font-weight: 700;
     font-size: 11px;
-    white-space: nowrap;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    flex-shrink: 0;
+    width: max-content;
+    min-width: max-content;
     background: #edf2ec;
     color: var(--green);
     border: 1px solid rgba(18, 56, 42, 0.12);
