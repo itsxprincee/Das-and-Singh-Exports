@@ -51,4 +51,6 @@ Das & Singh Exports/
 
 - **Email**: [dassinghexports@gmail.com](mailto:dassinghexports@gmail.com)
 - **WhatsApp / Phone**: +91 9576461985
+- **LinkedIn**: [Das & Singh Exports](https://www.linkedin.com/in/das-and-singh-exports-758973398?utm_source=share_via&utm_content=profile&utm_medium=member_ios)
+- **Instagram**: [@dassinghexports](https://www.instagram.com/dassinghexports?igsi=MWdkbmQwMXVxM3c1cg==)
 - **Office**: 12, BBD Bagh East, West Bengal Khadi and Village Industries Board, 2nd Floor, Kolkata-700001, India
