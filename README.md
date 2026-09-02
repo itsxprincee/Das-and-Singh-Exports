@@ -6,6 +6,7 @@ An export-grade, modern web platform for **Das & Singh Exports** showcasing:
 - **Phool Makhana (Fox Nuts / Lotus Seeds)**: Raw dried, puffed, and flavored grades (2 Suta to 6+ Suta) sourced from Bihar, India.
 - **100% Virgin Indian Human Hair**: Ethically sourced, cuticle-intact human hair extensions for international salons and distributors.
 - **Government Certifications & Approvals**: APEDA, FSSAI, IEC, DGFT, FIEO, Spices Board India, and GST registered export house.
+- **Executive Leadership & Global Vision**: Meet the founders and domain experts spearheading international trade.
 - **Global Compliance & HSN Directory**: Documentation, phytosanitary certifications, and destination freight logistics.
 
 ---
