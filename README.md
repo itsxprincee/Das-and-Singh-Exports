@@ -4,10 +4,22 @@
 
 An export-grade, modern web platform for **Das & Singh Exports** showcasing:
 - **Phool Makhana (Fox Nuts / Lotus Seeds)**: Raw dried, puffed, and flavored grades (2 Suta to 6+ Suta) sourced from Bihar, India.
-- **100% Virgin Indian Human Hair**: Ethically sourced, cuticle-intact human hair extensions for international salons and distributors.
+- **100% Virgin Indian Human Hair**: Ethically sourced, cuticle-intact human hair extensions for international salons and distributors (Supplied in strategic partnership with [Jana Human Hair](https://janahumanhair.com/)).
 - **Government Certifications & Approvals**: APEDA, FSSAI, IEC, DGFT, FIEO, Spices Board India, and GST registered export house.
 - **Executive Leadership & Global Vision**: Meet the founders and domain experts spearheading international trade.
 - **Global Compliance & HSN Directory**: Documentation, phytosanitary certifications, and destination freight logistics.
+
+---
+
+## 📦 HSN Codes & Product Categories
+
+| HSN Code | Category | Description |
+| :--- | :--- | :--- |
+| **08134090** | **Raw / Dried Makhana** | Lotus Seeds / Fox Nuts in raw dried bulk condition, sorted and export-ready. |
+| **19041090** | **Roasted / Puffed Makhana** | Naturally puffed and hygienically roasted makhana seeds for snacking and repackaging. |
+| **19041090** | **Flavoured / Seasoned Makhana** | Puffed and roasted fox nuts blended with gourmet dry seasoning and spices. |
+| **20081929** | **Prepared & Processed Makhana** | Value-added recipes including Spiced, Masala, Cheese, Peri-Peri in retail pouches. |
+| **67030010** | **Human Hair & Extensions** | 100% Natural, cuticle-aligned virgin human hair, dressed, thinned, and export-compliant. |
 
 ---
 

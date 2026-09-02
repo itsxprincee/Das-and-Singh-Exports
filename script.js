@@ -11,12 +11,15 @@ document.addEventListener("DOMContentLoaded", () => {
         yearEl.textContent = new Date().getFullYear();
     }
 
-    // 2. Navbar Scroll Effect
+    // 2. Header & Navbar Scroll Effect
+    const siteHeader = document.getElementById("siteHeader");
     const navbar = document.getElementById("navbar");
     const handleScroll = () => {
-        if (window.scrollY > 40) {
+        if (window.scrollY > 30) {
+            siteHeader?.classList.add("scrolled");
             navbar?.classList.add("scrolled");
         } else {
+            siteHeader?.classList.remove("scrolled");
             navbar?.classList.remove("scrolled");
         }
     };
@@ -53,14 +56,58 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         });
+
+        // Close mobile menu when clicking anywhere outside
+        document.addEventListener("click", (e) => {
+            if (navMenu.classList.contains("open") && !navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                navMenu.classList.remove("open");
+                const icon = menuBtn.querySelector("i");
+                if (icon) {
+                    icon.classList.remove("fa-xmark");
+                    icon.classList.add("fa-bars");
+                }
+            }
+        });
     }
 
-    // 4. ScrollSpy / Active Navigation State
+    // 4. Smooth Redirect to Top for Logo & Home Links
+    document.addEventListener("click", (e) => {
+        const logoOrHome = e.target.closest("a[href='#home'], a[href='#top'], .logo");
+        if (logoOrHome) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "smooth"
+            });
+            if (window.history.pushState) {
+                window.history.pushState(null, null, "#home");
+            }
+        }
+    });
+
+    // 5. ScrollSpy / Active Navigation State
     const sections = document.querySelectorAll("section[id], footer[id]");
     const navLinks = document.querySelectorAll(".nav-menu a[href^='#']");
 
     const updateActiveNav = () => {
-        const scrollPos = window.scrollY + 120;
+        const scrollPos = window.scrollY + 140;
+        const isBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60);
+
+        if (window.scrollY < 200) {
+            navLinks.forEach((link) => link.classList.remove("active"));
+            const homeLink = document.querySelector(".nav-menu a[href='#home']");
+            if (homeLink) homeLink.classList.add("active");
+            return;
+        }
+
+        if (isBottom) {
+            navLinks.forEach((link) => link.classList.remove("active"));
+            const contactLink = document.querySelector(".nav-menu a[href='#contact']");
+            if (contactLink) contactLink.classList.add("active");
+            return;
+        }
+
         sections.forEach((section) => {
             const top = section.offsetTop;
             const height = section.offsetHeight;
@@ -77,6 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
     window.addEventListener("scroll", updateActiveNav, { passive: true });
+    updateActiveNav();
 
     // 5. Quote Form Submission -> Google Sheets Web App
     const quoteForm = document.getElementById("quoteForm");
@@ -91,32 +139,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Collect form data
             const formData = new FormData(quoteForm);
-            const data = {
-                name: formData.get("name") || "",
-                company: formData.get("company") || "",
-                email: formData.get("email") || "",
-                country: formData.get("country") || "",
-                product: formData.get("product") || "",
-                message: formData.get("message") || "",
-                submittedAt: new Date().toLocaleString()
-            };
+            const params = new URLSearchParams();
+            for (const [key, value] of formData.entries()) {
+                params.append(key, value);
+            }
+            params.append("submittedAt", new Date().toLocaleString());
 
             // Loading state
             if (submitBtn) {
                 submitBtn.disabled = true;
-                submitBtn.innerHTML = `Sending Inquiry... <i class="fa-solid fa-spinner fa-spin"></i>`;
+                submitBtn.innerHTML = `<span>Sending Inquiry...</span> <i class="fa-solid fa-spinner fa-spin"></i>`;
             }
 
             try {
                 if (GOOGLE_SHEETS_WEBAPP_URL && GOOGLE_SHEETS_WEBAPP_URL.trim() !== "") {
-                    // Send data to Google Apps Script Web App (no-cors prevents browser CORS blocking)
+                    // Send data to Google Apps Script Web App
                     await fetch(GOOGLE_SHEETS_WEBAPP_URL, {
                         method: "POST",
                         mode: "no-cors",
                         headers: {
-                            "Content-Type": "application/json"
+                            "Content-Type": "application/x-www-form-urlencoded"
                         },
-                        body: JSON.stringify(data)
+                        body: params.toString()
                     });
                 } else {
                     console.info("Google Sheets Web App URL not configured in script.js yet. Simulating success.");
@@ -133,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Reset the form fields
                 quoteForm.reset();
             } catch (error) {
-                console.error("Error submitting inquiry to Google Sheets:", error);
+                console.error("Error submitting inquiry:", error);
                 alert("There was an issue sending your inquiry. Please contact us directly via email or WhatsApp.");
             } finally {
                 // Restore button state
@@ -145,24 +189,25 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 6. Scroll Reveal Observer
-    const revealElements = document.querySelectorAll(".reveal");
-    if (revealElements.length > 0 && "IntersectionObserver" in window) {
-        const revealObserver = new IntersectionObserver(
-            (entries, observer) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            {
-                threshold: 0.15,
-                rootMargin: "0px 0px -40px 0px",
+    // 6. Scroll To Top Button
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    if (scrollTopBtn) {
+        const handleScrollTopVisibility = () => {
+            if (window.scrollY > 350) {
+                scrollTopBtn.classList.add("visible");
+            } else {
+                scrollTopBtn.classList.remove("visible");
             }
-        );
+        };
 
-        revealElements.forEach((el) => revealObserver.observe(el));
+        window.addEventListener("scroll", handleScrollTopVisibility, { passive: true });
+        handleScrollTopVisibility();
+
+        scrollTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
     }
 });
