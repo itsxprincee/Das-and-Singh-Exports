@@ -1209,9 +1209,9 @@ button {
 }
 
 .leader-avatar {
-    width: 64px;
-    height: 64px;
-    min-width: 64px;
+    width: 72px;
+    height: 72px;
+    min-width: 72px;
     background: linear-gradient(135deg, var(--green), var(--green-light));
     border: 2px solid var(--gold);
     border-radius: 18px;
@@ -1224,6 +1224,16 @@ button {
     letter-spacing: 1px;
     box-shadow: 0 6px 18px rgba(18, 56, 42, 0.2);
     position: relative;
+    overflow: visible;
+}
+
+.leader-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 16px;
+    display: block;
 }
 
 .leader-avatar-icon {
