@@ -1217,6 +1217,207 @@ header[id] {
 
 
 /* =========================================
+   MEET OUR LEADERSHIP
+========================================= */
+
+.leadership-section {
+    background: #ffffff;
+    position: relative;
+    padding: 100px 0;
+}
+
+.leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.leader-card {
+    background: #fbfbf9;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+    box-shadow: 0 4px 20px rgba(18, 56, 42, 0.04);
+}
+
+.leader-card:hover {
+    transform: translateY(-6px);
+    background: #ffffff;
+    box-shadow: 0 25px 50px rgba(18, 56, 42, 0.1);
+    border-color: rgba(197, 155, 85, 0.4);
+}
+
+.leader-visual {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 360px;
+    overflow: hidden;
+    background: #e5ebe6;
+}
+
+.leader-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.leader-card:hover .leader-img {
+    transform: scale(1.05);
+}
+
+.leader-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(18, 56, 42, 0) 60%, rgba(18, 56, 42, 0.7) 100%);
+    pointer-events: none;
+}
+
+.leader-role-badge {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    background: rgba(18, 56, 42, 0.88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #ffffff;
+    border: 1px solid rgba(197, 155, 85, 0.4);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.leader-role-badge i {
+    color: var(--gold);
+    font-size: 11px;
+}
+
+.leader-content {
+    padding: 30px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.leader-tags {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.leader-role-tag {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    background: #edf2ec;
+    color: var(--green);
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(18, 56, 42, 0.08);
+}
+
+.leader-exp-tag {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    background: rgba(197, 155, 85, 0.12);
+    color: #8c6827;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(197, 155, 85, 0.25);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.leader-exp-tag i {
+    font-size: 9px;
+}
+
+.leader-name {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    color: var(--dark);
+    margin-bottom: 14px;
+    line-height: 1.25;
+}
+
+.leader-body p {
+    font-size: 12.5px;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.leader-body p:last-child {
+    margin-bottom: 0;
+}
+
+.leader-quote {
+    position: relative;
+    background: #ffffff;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    padding: 14px 16px 14px 20px;
+    border: 1px solid rgba(20, 37, 29, 0.07);
+    border-left: 3px solid var(--gold);
+}
+
+.quote-mark {
+    font-size: 14px;
+    color: var(--gold);
+    margin-bottom: 6px;
+    display: block;
+    opacity: 0.8;
+}
+
+.leader-quote blockquote {
+    font-size: 11.5px;
+    font-style: italic;
+    color: var(--dark);
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 1100px) {
+    .leadership-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+    .leader-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .leader-visual {
+        height: 280px;
+        min-height: 280px;
+    }
+    
+    .leader-content {
+        padding: 24px 20px;
+    }
+}
+
+
+/* =========================================
    PROCESS
 ========================================= */
 
