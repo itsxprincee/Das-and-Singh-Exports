@@ -222,4 +222,23 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    // 7. One-Click Copy for HSN & Tax Codes
+    document.querySelectorAll(".hsn-badge, .cert-code-value span").forEach((elem) => {
+        elem.style.cursor = "pointer";
+        elem.title = "Click to copy code";
+        elem.addEventListener("click", () => {
+            const textToCopy = elem.innerText.replace("HSN", "").trim();
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                if (toast) {
+                    toast.innerHTML = `<i class="fa-solid fa-copy"></i> <span>Copied "${textToCopy}" to clipboard!</span>`;
+                    toast.classList.add("show");
+                    setTimeout(() => {
+                        toast.classList.remove("show");
+                    }, 3500);
+                }
+            });
+        });
+    });
 });
+

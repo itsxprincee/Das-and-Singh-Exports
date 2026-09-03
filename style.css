@@ -19,7 +19,7 @@ body {
     color: #14251d;
     line-height: 1.6;
     overflow-x: hidden;
-    padding-top: 105px;
+    padding-top: 75px;
 }
 
 a {
@@ -129,100 +129,12 @@ header[id] {
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     width: 100%;
-    z-index: 1000;
-    transition: transform 0.3s ease;
-}
-
-.topbar {
-    background: #0d261c;
-    color: rgba(255, 255, 255, 0.82);
-    font-size: 11px;
-    padding: 7px 0;
-    border-bottom: 1px solid rgba(197, 155, 85, 0.25);
-    transition: all 0.35s ease;
-    max-height: 45px;
-    overflow: hidden;
-}
-
-.site-header.scrolled .topbar {
-    max-height: 0;
-    padding: 0;
-    opacity: 0;
-    border-bottom-color: transparent;
-}
-
-.topbar-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-}
-
-.topbar-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.topbar-cert-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--gold);
-    font-weight: 700;
-    letter-spacing: 0.3px;
-}
-
-.topbar-cert-badge i {
-    font-size: 11px;
-}
-
-.topbar-divider {
-    color: rgba(255, 255, 255, 0.3);
-}
-
-.topbar-codes {
-    color: rgba(255, 255, 255, 0.65);
-    font-size: 10.5px;
-    letter-spacing: 0.5px;
-}
-
-.topbar-right {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-}
-
-.topbar-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: rgba(255, 255, 255, 0.8);
-    transition: color 0.2s ease;
-}
-
-.topbar-link:hover {
-    color: var(--gold);
-}
-
-.topbar-link i {
-    color: var(--gold);
-    font-size: 10px;
-}
-
-.topbar-shipping-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(197, 155, 85, 0.15);
-    color: var(--gold);
-    border: 1px solid rgba(197, 155, 85, 0.3);
-    padding: 2px 8px;
-    border-radius: 20px;
-    font-size: 10px;
-    font-weight: 600;
+    z-index: 9999;
+    background: #ffffff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
 }
 
 
@@ -233,19 +145,17 @@ header[id] {
 .navbar {
     width: 100%;
     padding: 14px 0;
-    background: rgba(248, 247, 242, 0.92);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border-bottom: 1px solid rgba(20, 37, 29, 0.06);
+    background: #ffffff;
+    border-bottom: 1px solid rgba(20, 37, 29, 0.08);
     transition: all 0.3s ease;
 }
 
+.site-header.scrolled {
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+}
+
 .site-header.scrolled .navbar {
-    background: rgba(248, 247, 242, 0.98);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     padding: 10px 0;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
 }
 
 .nav-container {
@@ -1418,13 +1328,14 @@ header[id] {
     text-align: center;
 }
 
+.process-num,
 .process-step > span {
     display: block;
     color: var(--gold);
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 700;
     letter-spacing: 1px;
-    margin-bottom: 13px;
+    margin-bottom: 12px;
 }
 
 .process-step > i {
@@ -1449,7 +1360,7 @@ header[id] {
     max-width: 170px;
     margin: 8px auto 0;
     color: var(--text);
-    font-size: 10px;
+    font-size: 11px;
     line-height: 1.7;
 }
 
@@ -2174,6 +2085,9 @@ header[id] {
     color: rgba(255,255,255,0.3);
     font-size: 9px;
 }
+
+
+
 
 
 /* =========================================
@@ -3497,6 +3411,209 @@ header[id] {
 
 
 /* =========================================
+   GRADES, NUTRITION & HEALTH CHARACTERISTICS
+========================================= */
+
+.grades-block,
+.nutrition-block {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 20px rgba(18, 56, 42, 0.04);
+}
+
+.nutrition-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    margin-top: 25px;
+}
+
+.nutrition-card {
+    background: #fbfbf9;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 14px;
+    text-align: center;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.nutrition-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--green);
+    box-shadow: 0 8px 20px rgba(18, 56, 42, 0.08);
+}
+
+.nutrition-icon {
+    width: 36px;
+    height: 36px;
+    margin: 0 auto 8px;
+    border-radius: 50%;
+    background: #edf2ec;
+    color: var(--green);
+    display: grid;
+    place-items: center;
+    font-size: 15px;
+}
+
+.nutrition-val {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.2;
+}
+
+.nutrition-val small {
+    font-size: 11px;
+    color: var(--text);
+    font-weight: 500;
+}
+
+.nutrition-name {
+    font-size: 11px;
+    color: var(--text);
+    font-weight: 600;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Key Health Characteristics */
+.characteristics-box {
+    margin-top: 35px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+}
+
+.characteristics-box h4 {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    color: var(--dark);
+    margin-bottom: 22px;
+}
+
+.characteristics-container {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 28px;
+    align-items: stretch;
+}
+
+.characteristics-visual {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    height: 100%;
+    min-height: 280px;
+}
+
+.char-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.char-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.char-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(18,56,42,0.1) 0%, rgba(18,56,42,0.7) 100%);
+}
+
+.char-img-badge {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    background: rgba(18, 56, 42, 0.9);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(197, 155, 85, 0.35);
+    border-radius: 10px;
+    padding: 10px 14px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.char-img-badge i {
+    color: var(--gold);
+    font-size: 18px;
+}
+
+.char-img-badge strong {
+    display: block;
+    font-size: 12px;
+}
+
+.char-img-badge span {
+    display: block;
+    font-size: 10px;
+    color: #d4c49c;
+}
+
+.characteristics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.char-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    box-shadow: 0 4px 15px rgba(18, 56, 42, 0.03);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.char-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(197, 155, 85, 0.4);
+    box-shadow: 0 10px 25px rgba(18, 56, 42, 0.08);
+}
+
+.char-card i {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #edf2ec;
+    color: var(--green);
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.char-card strong {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dark);
+    display: block;
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.char-card p {
+    font-size: 12.5px;
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+/* =========================================
    RESPONSIVE DESIGN SYSTEM (LAPTOP & MOBILE)
 ========================================= */
 
@@ -3553,12 +3670,7 @@ html, body {
 /* 3. Tablets & Small Laptops (769px - 1024px) */
 @media (max-width: 1024px) {
     body {
-        padding-top: 90px;
-    }
-
-    .topbar-codes,
-    .topbar-shipping-badge {
-        display: none;
+        padding-top: 75px;
     }
 
     .desktop-quote {
@@ -3701,6 +3813,60 @@ html, body {
         height: 380px;
     }
 
+    .section-heading {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        align-items: flex-start;
+        margin-bottom: 40px;
+    }
+
+    .section-heading > p {
+        max-width: 100%;
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .process-line {
+        display: none;
+    }
+
+    .process-step {
+        display: flex;
+        align-items: flex-start;
+        text-align: left;
+        gap: 16px;
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 20px;
+    }
+
+    .process-step > i {
+        margin: 0;
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+        flex-shrink: 0;
+    }
+
+    .process-num {
+        margin-bottom: 2px;
+    }
+
+    .process-step h3 {
+        margin-top: 2px;
+        font-size: 17px;
+    }
+
+    .process-step p {
+        max-width: 100%;
+        margin: 4px 0 0;
+        font-size: 13px;
+    }
+
     .quote-box {
         grid-template-columns: 1fr;
         gap: 35px;
@@ -3720,23 +3886,31 @@ html, body {
     }
 
     body {
-        padding-top: 85px;
+        padding-top: 70px;
     }
 
     .section {
         padding: 55px 0;
     }
 
+    .section-heading {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 30px;
+    }
+
+    .section-heading > p {
+        max-width: 100%;
+        font-size: 13.5px;
+        line-height: 1.65;
+    }
+
     .container {
         width: min(100% - 28px, 560px);
     }
 
-    .topbar-container {
-        font-size: 10.5px;
-    }
-
     .nav-menu {
-        max-height: calc(100vh - 115px);
+        max-height: calc(100vh - 85px);
         overflow-y: auto;
         overscroll-behavior: contain;
         -webkit-overflow-scrolling: touch;
@@ -3825,6 +3999,25 @@ html, body {
         padding: 24px 20px;
     }
 
+    .characteristics-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .characteristics-visual {
+        height: 220px;
+        min-height: 220px;
+    }
+
+    .characteristics-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px;
+    }
+
+    .char-card {
+        padding: 16px 18px;
+    }
+
     .nutrition-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
@@ -3857,6 +4050,52 @@ html, body {
         margin-top: 18px;
     }
 
+    .process-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .process-line {
+        display: none;
+    }
+
+    .process-step {
+        display: flex;
+        align-items: flex-start;
+        text-align: left;
+        gap: 14px;
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 16px 18px;
+        box-shadow: 0 3px 12px rgba(18, 56, 42, 0.03);
+    }
+
+    .process-step > i {
+        width: 46px;
+        height: 46px;
+        font-size: 17px;
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    .process-num {
+        margin-bottom: 2px;
+        font-size: 10.5px;
+    }
+
+    .process-step h3 {
+        margin-top: 2px;
+        font-size: 16px;
+    }
+
+    .process-step p {
+        max-width: 100%;
+        margin: 4px 0 0;
+        font-size: 12.5px;
+        line-height: 1.55;
+    }
+
     .form-row {
         grid-template-columns: 1fr;
         gap: 0;
@@ -3874,8 +4113,16 @@ html, body {
     }
 
     .footer-main {
-        grid-template-columns: 1fr;
-        gap: 32px;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px 16px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-column.contact-column {
+        grid-column: 1 / -1;
     }
 
     .footer-bottom {
@@ -3911,25 +4158,6 @@ html, body {
 
 /* 5. Small Mobile Phones (< 480px) */
 @media (max-width: 480px) {
-    .topbar {
-        padding: 6px 0;
-    }
-
-    .topbar-container {
-        flex-direction: column;
-        gap: 4px;
-        text-align: center;
-    }
-
-    .topbar-left, .topbar-right {
-        justify-content: center;
-        gap: 8px;
-    }
-
-    .topbar-divider {
-        display: none;
-    }
-
     .stats-grid {
         grid-template-columns: 1fr;
     }
