@@ -219,27 +219,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 6. Scroll To Top Button
-    const scrollTopBtn = document.getElementById("scrollTopBtn");
-    if (scrollTopBtn) {
-        const handleScrollTopVisibility = () => {
-            if (window.scrollY > 350) {
-                scrollTopBtn.classList.add("visible");
-            } else {
-                scrollTopBtn.classList.remove("visible");
-            }
-        };
-
-        window.addEventListener("scroll", handleScrollTopVisibility, { passive: true });
-        handleScrollTopVisibility();
-
-        scrollTopBtn.addEventListener("click", () => {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        });
-    }
 
     // 7. One-Click Copy for HSN & Tax Codes
     document.querySelectorAll(".hsn-badge, .cert-code-value span").forEach((elem) => {
@@ -258,5 +237,31 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     });
+
+    // 8. International Trade FAQ Accordion
+    document.querySelectorAll(".faq-question").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const parentItem = btn.closest(".faq-item");
+            if (parentItem) {
+                const isOpen = parentItem.classList.contains("open");
+                // Close other open FAQ items
+                document.querySelectorAll(".faq-item").forEach((item) => {
+                    item.classList.remove("open");
+                });
+                if (!isOpen) {
+                    parentItem.classList.add("open");
+                }
+            }
+        });
+    });
+
+    // 9. Download / Print Spec Sheet Triggers
+    document.querySelectorAll(".download-specs-btn, [data-action='print-specs']").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.print();
+        });
+    });
 });
+
 
