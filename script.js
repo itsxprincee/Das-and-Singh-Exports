@@ -70,10 +70,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 4. Smooth Redirect to Top for Logo & Home Links
+    // 4. Smooth Redirect to Top for Logo & Home Links (Homepage only)
     document.addEventListener("click", (e) => {
-        const logoOrHome = e.target.closest("a[href='#home'], a[href='#top'], .logo");
-        if (logoOrHome) {
+        const path = window.location.pathname;
+        const isHomePage = path.endsWith("index.html") || path === "/" || path.endsWith("/") || !path.includes(".html");
+        
+        const homeAnchor = e.target.closest("a[href='#home'], a[href='#top']");
+        const logo = e.target.closest(".logo");
+        
+        if (homeAnchor && isHomePage) {
             e.preventDefault();
             window.scrollTo({
                 top: 0,
@@ -83,6 +88,13 @@ document.addEventListener("DOMContentLoaded", () => {
             if (window.history.pushState) {
                 window.history.pushState(null, null, "#home");
             }
+        } else if (logo && isHomePage) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "smooth"
+            });
         }
     });
 
