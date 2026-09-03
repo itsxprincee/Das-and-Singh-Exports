@@ -523,6 +523,10 @@ header[id] {
     background: linear-gradient(135deg, var(--green), var(--gold));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: inline-block;
+    padding-right: 0.15em;
+    padding-left: 0.02em;
+    overflow: visible;
 }
 
 .hero-content > p {
