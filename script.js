@@ -220,21 +220,38 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // 7. One-Click Copy for HSN & Tax Codes
-    document.querySelectorAll(".hsn-badge, .cert-code-value span").forEach((elem) => {
+    // 7. One-Click Copy for HSN & Tax/Registration Codes
+    const copyToClipboard = (text) => {
+        if (!navigator.clipboard) return;
+        navigator.clipboard.writeText(text).then(() => {
+            if (toast) {
+                toast.innerHTML = `<i class="fa-solid fa-copy"></i> <span>Copied "${text}" to clipboard!</span>`;
+                toast.classList.add("show");
+                setTimeout(() => {
+                    toast.classList.remove("show");
+                }, 3500);
+            }
+        }).catch((err) => {
+            console.error("Copy failed:", err);
+        });
+    };
+
+    document.querySelectorAll(".hsn-badge").forEach((elem) => {
         elem.style.cursor = "pointer";
         elem.title = "Click to copy code";
         elem.addEventListener("click", () => {
             const textToCopy = elem.innerText.replace("HSN", "").trim();
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                if (toast) {
-                    toast.innerHTML = `<i class="fa-solid fa-copy"></i> <span>Copied "${textToCopy}" to clipboard!</span>`;
-                    toast.classList.add("show");
-                    setTimeout(() => {
-                        toast.classList.remove("show");
-                    }, 3500);
-                }
-            });
+            copyToClipboard(textToCopy);
+        });
+    });
+
+    document.querySelectorAll(".cert-code-value").forEach((elem) => {
+        elem.style.cursor = "pointer";
+        elem.title = "Click to copy certificate / license number";
+        elem.addEventListener("click", () => {
+            const codeSpan = elem.querySelector("span:first-child");
+            const textToCopy = (codeSpan ? codeSpan.innerText : elem.innerText).trim();
+            copyToClipboard(textToCopy);
         });
     });
 
@@ -262,6 +279,54 @@ document.addEventListener("DOMContentLoaded", () => {
             window.print();
         });
     });
+
+    // 10. Interactive Certifications Showcase Tabs & Carousel
+    const certTabs = document.querySelectorAll(".cert-tab-btn");
+    const certPanels = document.querySelectorAll(".cert-detail-panel");
+    const certCounter = document.getElementById("certCounter");
+    const certPrevBtn = document.getElementById("certPrevBtn");
+    const certNextBtn = document.getElementById("certNextBtn");
+
+    if (certTabs.length > 0 && certPanels.length > 0) {
+        let currentCertIdx = 0;
+        const totalCerts = certTabs.length;
+
+        const switchCertTab = (index) => {
+            currentCertIdx = (index + totalCerts) % totalCerts;
+
+            certTabs.forEach((tab, i) => {
+                const isActive = (i === currentCertIdx);
+                tab.classList.toggle("active", isActive);
+                tab.setAttribute("aria-selected", isActive ? "true" : "false");
+            });
+
+            certPanels.forEach((panel, i) => {
+                panel.classList.toggle("active", i === currentCertIdx);
+            });
+
+            if (certCounter) {
+                certCounter.textContent = `${currentCertIdx + 1} / ${totalCerts}`;
+            }
+        };
+
+        certTabs.forEach((tab, idx) => {
+            tab.addEventListener("click", () => {
+                switchCertTab(idx);
+            });
+        });
+
+        if (certPrevBtn) {
+            certPrevBtn.addEventListener("click", () => {
+                switchCertTab(currentCertIdx - 1);
+            });
+        }
+
+        if (certNextBtn) {
+            certNextBtn.addEventListener("click", () => {
+                switchCertTab(currentCertIdx + 1);
+            });
+        }
+    }
 });
 
 
