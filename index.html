@@ -693,161 +693,234 @@
 
         </div>
 
-        <div class="cert-trust-banner">
+        <div class="cert-interactive-hub">
 
-            <div class="cert-trust-left">
-                <i class="fa-solid fa-shield-halved"></i>
-                <div>
-                    <strong>100% Certified Export House</strong>
-                    <span>Fully registered and compliant with Indian Government export authorities and food safety boards</span>
+            <!-- Hub Top Banner -->
+            <div class="cert-hub-header">
+                <div class="cert-trust-left">
+                    <div class="cert-shield-icon-wrap">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <strong>100% Certified Export House</strong>
+                        <span>Fully registered and compliant with Indian Government export authorities and food safety boards</span>
+                    </div>
+                </div>
+
+                <div class="cert-hub-nav">
+                    <button type="button" class="cert-nav-btn cert-nav-prev" id="certPrevBtn" aria-label="Previous Certificate" title="Previous Certificate">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <span class="cert-counter" id="certCounter">1 / 7</span>
+                    <button type="button" class="cert-nav-btn cert-nav-next" id="certNextBtn" aria-label="Next Certificate" title="Next Certificate">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
 
-            <div class="cert-trust-badges">
-                <span class="cert-pill"><i class="fa-solid fa-circle-check"></i> APEDA</span>
-                <span class="cert-pill"><i class="fa-solid fa-circle-check"></i> FSSAI</span>
-                <span class="cert-pill"><i class="fa-solid fa-circle-check"></i> IEC</span>
-                <span class="cert-pill"><i class="fa-solid fa-circle-check"></i> DGFT</span>
-                <span class="cert-pill"><i class="fa-solid fa-circle-check"></i> FIEO</span>
-                <span class="cert-pill"><i class="fa-solid fa-circle-check"></i> Spices Board</span>
-                <span class="cert-pill"><i class="fa-solid fa-circle-check"></i> GST</span>
+            <!-- Interactive Tab Bar with 7 Government Certifications -->
+            <div class="cert-tabs-bar" role="tablist" aria-label="Certifications &amp; Govt. Approvals">
+                <button type="button" class="cert-tab-btn active" role="tab" aria-selected="true" data-cert-target="apeda">
+                    <i class="fa-solid fa-circle-check"></i> APEDA
+                </button>
+                <button type="button" class="cert-tab-btn" role="tab" aria-selected="false" data-cert-target="fssai">
+                    <i class="fa-solid fa-circle-check"></i> FSSAI
+                </button>
+                <button type="button" class="cert-tab-btn" role="tab" aria-selected="false" data-cert-target="iec">
+                    <i class="fa-solid fa-circle-check"></i> IEC
+                </button>
+                <button type="button" class="cert-tab-btn" role="tab" aria-selected="false" data-cert-target="dgft">
+                    <i class="fa-solid fa-circle-check"></i> DGFT
+                </button>
+                <button type="button" class="cert-tab-btn" role="tab" aria-selected="false" data-cert-target="fieo">
+                    <i class="fa-solid fa-circle-check"></i> FIEO
+                </button>
+                <button type="button" class="cert-tab-btn" role="tab" aria-selected="false" data-cert-target="spices">
+                    <i class="fa-solid fa-circle-check"></i> Spices Board
+                </button>
+                <button type="button" class="cert-tab-btn" role="tab" aria-selected="false" data-cert-target="gst">
+                    <i class="fa-solid fa-circle-check"></i> GST
+                </button>
             </div>
 
-        </div>
+            <!-- Single Compact Certificate Showcase Display -->
+            <div class="cert-display-card">
 
-        <div class="certifications-grid">
+                <!-- APEDA -->
+                <div class="cert-detail-panel active" id="cert-panel-apeda" data-cert-index="0">
+                    <div class="cert-detail-main">
+                        <div class="cert-logo-mark">
+                            <img src="images/logos/apeda.jpg" alt="APEDA Official Logo" class="cert-logo-img">
+                        </div>
+                        <div class="cert-detail-text">
+                            <div class="cert-meta-row">
+                                <span class="cert-badge-tag">Govt. of India</span>
+                                <span class="cert-status-badge"><i class="fa-solid fa-certificate"></i> Official Accredited</span>
+                            </div>
+                            <h3>APEDA</h3>
+                            <p class="cert-authority">Agricultural and Processed Food Products Export Development Authority</p>
+                        </div>
+                    </div>
+                    <div class="cert-code-container">
+                        <span class="cert-code-label">Registration Code</span>
+                        <div class="cert-code-value">
+                            <span>RCMC/APEDA/22636/2025-2026</span>
+                            <span class="cert-copy-hint"><i class="fa-regular fa-copy"></i> Copy</span>
+                            <i class="fa-solid fa-circle-check cert-verified-icon" title="Verified"></i>
+                        </div>
+                    </div>
+                </div>
 
-            <!-- APEDA -->
-            <div class="cert-card">
-                <div class="cert-card-header">
-                    <div class="cert-logo-mark">
-                        <img src="images/logos/apeda.jpg" alt="APEDA Official Logo" class="cert-logo-img">
+                <!-- FSSAI -->
+                <div class="cert-detail-panel" id="cert-panel-fssai" data-cert-index="1">
+                    <div class="cert-detail-main">
+                        <div class="cert-logo-mark">
+                            <img src="images/logos/fssai.png" alt="FSSAI Official Logo" class="cert-logo-img">
+                        </div>
+                        <div class="cert-detail-text">
+                            <div class="cert-meta-row">
+                                <span class="cert-badge-tag">Food Safety</span>
+                                <span class="cert-status-badge"><i class="fa-solid fa-certificate"></i> Official Accredited</span>
+                            </div>
+                            <h3>FSSAI</h3>
+                            <p class="cert-authority">Food Safety and Standards Authority of India</p>
+                        </div>
                     </div>
-                    <span class="cert-badge-tag">Govt. of India</span>
-                </div>
-                <h3>APEDA</h3>
-                <p class="cert-authority">Agricultural and Processed Food Products Export Development Authority</p>
-                <div class="cert-code-container">
-                    <span class="cert-code-label">Registration Code</span>
-                    <div class="cert-code-value">
-                        <span>RCMC/APEDA/22636/2025-2026</span>
-                        <i class="fa-solid fa-circle-check cert-verified-icon" title="Verified"></i>
+                    <div class="cert-code-container">
+                        <span class="cert-code-label">License No.</span>
+                        <div class="cert-code-value">
+                            <span>12825999001260</span>
+                            <span class="cert-copy-hint"><i class="fa-regular fa-copy"></i> Copy</span>
+                            <i class="fa-solid fa-circle-check cert-verified-icon" title="Verified"></i>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- FSSAI -->
-            <div class="cert-card">
-                <div class="cert-card-header">
-                    <div class="cert-logo-mark">
-                        <img src="images/logos/fssai.png" alt="FSSAI Official Logo" class="cert-logo-img">
+                <!-- IEC -->
+                <div class="cert-detail-panel" id="cert-panel-iec" data-cert-index="2">
+                    <div class="cert-detail-main">
+                        <div class="cert-logo-mark">
+                            <img src="images/logos/iec.png" alt="IEC Import Export Code Official Logo" class="cert-logo-img">
+                        </div>
+                        <div class="cert-detail-text">
+                            <div class="cert-meta-row">
+                                <span class="cert-badge-tag">Foreign Trade</span>
+                                <span class="cert-status-badge"><i class="fa-solid fa-certificate"></i> Official Accredited</span>
+                            </div>
+                            <h3>Import Export Code</h3>
+                            <p class="cert-authority">Ministry of Commerce &amp; Industry (Directorate of Foreign Trade)</p>
+                        </div>
                     </div>
-                    <span class="cert-badge-tag">Food Safety</span>
-                </div>
-                <h3>FSSAI</h3>
-                <p class="cert-authority">Food Safety and Standards Authority of India</p>
-                <div class="cert-code-container">
-                    <span class="cert-code-label">License No.</span>
-                    <div class="cert-code-value">
-                        <span>12825999001260</span>
-                        <i class="fa-solid fa-circle-check cert-verified-icon" title="Verified"></i>
+                    <div class="cert-code-container">
+                        <span class="cert-code-label">IEC Code</span>
+                        <div class="cert-code-value">
+                            <span>AAYFD6407A</span>
+                            <span class="cert-copy-hint"><i class="fa-regular fa-copy"></i> Copy</span>
+                            <i class="fa-solid fa-circle-check cert-verified-icon" title="Verified"></i>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- IEC -->
-            <div class="cert-card">
-                <div class="cert-card-header">
-                    <div class="cert-logo-mark">
-                        <img src="images/logos/iec.png" alt="IEC Import Export Code Official Logo" class="cert-logo-img">
+                <!-- DGFT -->
+                <div class="cert-detail-panel" id="cert-panel-dgft" data-cert-index="3">
+                    <div class="cert-detail-main">
+                        <div class="cert-logo-mark">
+                            <img src="images/logos/dgft.png" alt="DGFT Directorate General of Foreign Trade Official Logo" class="cert-logo-img">
+                        </div>
+                        <div class="cert-detail-text">
+                            <div class="cert-meta-row">
+                                <span class="cert-badge-tag">Trade Clearance</span>
+                                <span class="cert-status-badge"><i class="fa-solid fa-certificate"></i> Official Accredited</span>
+                            </div>
+                            <h3>DGFT</h3>
+                            <p class="cert-authority">Directorate General of Foreign Trade, Government of India</p>
+                        </div>
                     </div>
-                    <span class="cert-badge-tag">Foreign Trade</span>
-                </div>
-                <h3>Import Export Code</h3>
-                <p class="cert-authority">Ministry of Commerce &amp; Industry (Directorate of Foreign Trade)</p>
-                <div class="cert-code-container">
-                    <span class="cert-code-label">IEC Code</span>
-                    <div class="cert-code-value">
-                        <span>AAYFD6407A</span>
-                        <i class="fa-solid fa-circle-check cert-verified-icon" title="Verified"></i>
+                    <div class="cert-code-container">
+                        <span class="cert-code-label">DGFT Identification</span>
+                        <div class="cert-code-value">
+                            <span>AAYFD6407A</span>
+                            <span class="cert-copy-hint"><i class="fa-regular fa-copy"></i> Copy</span>
+                            <i class="fa-solid fa-circle-check cert-verified-icon" title="Verified"></i>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- DGFT -->
-            <div class="cert-card">
-                <div class="cert-card-header">
-                    <div class="cert-logo-mark">
-                        <img src="images/logos/dgft.png" alt="DGFT Directorate General of Foreign Trade Official Logo" class="cert-logo-img">
+                <!-- FIEO -->
+                <div class="cert-detail-panel" id="cert-panel-fieo" data-cert-index="4">
+                    <div class="cert-detail-main">
+                        <div class="cert-logo-mark">
+                            <img src="images/logos/fieo.png" alt="FIEO Federation of Indian Export Organisations Official Logo" class="cert-logo-img">
+                        </div>
+                        <div class="cert-detail-text">
+                            <div class="cert-meta-row">
+                                <span class="cert-badge-tag">Export Body</span>
+                                <span class="cert-status-badge"><i class="fa-solid fa-certificate"></i> Official Accredited</span>
+                            </div>
+                            <h3>FIEO</h3>
+                            <p class="cert-authority">Federation of Indian Export Organisations (Set up by Ministry of Commerce)</p>
+                        </div>
                     </div>
-                    <span class="cert-badge-tag">Trade Clearance</span>
-                </div>
-                <h3>DGFT</h3>
-                <p class="cert-authority">Directorate General of Foreign Trade, Government of India</p>
-                <div class="cert-code-container">
-                    <span class="cert-code-label">DGFT Identification</span>
-                    <div class="cert-code-value">
-                        <span>AAYFD6407A</span>
-                        <i class="fa-solid fa-circle-check cert-verified-icon" title="Verified"></i>
+                    <div class="cert-code-container">
+                        <span class="cert-code-label">Membership Status</span>
+                        <div class="cert-code-value">
+                            <span>Recognized Export Partner</span>
+                            <span class="cert-copy-hint"><i class="fa-regular fa-copy"></i> Copy</span>
+                            <i class="fa-solid fa-circle-check cert-verified-icon" title="Verified"></i>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- FIEO -->
-            <div class="cert-card">
-                <div class="cert-card-header">
-                    <div class="cert-logo-mark">
-                        <img src="images/logos/fieo.png" alt="FIEO Federation of Indian Export Organisations Official Logo" class="cert-logo-img">
+                <!-- Spices Board India -->
+                <div class="cert-detail-panel" id="cert-panel-spices" data-cert-index="5">
+                    <div class="cert-detail-main">
+                        <div class="cert-logo-mark">
+                            <img src="images/logos/spices-board.png" alt="Spices Board India Official Logo" class="cert-logo-img">
+                        </div>
+                        <div class="cert-detail-text">
+                            <div class="cert-meta-row">
+                                <span class="cert-badge-tag">Commodity Board</span>
+                                <span class="cert-status-badge"><i class="fa-solid fa-certificate"></i> Official Accredited</span>
+                            </div>
+                            <h3>Spices Board India</h3>
+                            <p class="cert-authority">Ministry of Commerce &amp; Industry, Government of India</p>
+                        </div>
                     </div>
-                    <span class="cert-badge-tag">Export Body</span>
-                </div>
-                <h3>FIEO</h3>
-                <p class="cert-authority">Federation of Indian Export Organisations (Set up by Ministry of Commerce)</p>
-                <div class="cert-code-container">
-                    <span class="cert-code-label">Membership Status</span>
-                    <div class="cert-code-value">
-                        <span>Recognized Export Partner</span>
-                        <i class="fa-solid fa-circle-check cert-verified-icon" title="Verified"></i>
+                    <div class="cert-code-container">
+                        <span class="cert-code-label">Standard Compliance</span>
+                        <div class="cert-code-value">
+                            <span>Quality &amp; Export Verified</span>
+                            <span class="cert-copy-hint"><i class="fa-regular fa-copy"></i> Copy</span>
+                            <i class="fa-solid fa-circle-check cert-verified-icon" title="Verified"></i>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Spices Board India -->
-            <div class="cert-card">
-                <div class="cert-card-header">
-                    <div class="cert-logo-mark">
-                        <img src="images/logos/spices-board.png" alt="Spices Board India Official Logo" class="cert-logo-img">
+                <!-- GST Registration -->
+                <div class="cert-detail-panel" id="cert-panel-gst" data-cert-index="6">
+                    <div class="cert-detail-main">
+                        <div class="cert-logo-mark">
+                            <img src="images/logos/gst.png" alt="GST India Official Logo" class="cert-logo-img">
+                        </div>
+                        <div class="cert-detail-text">
+                            <div class="cert-meta-row">
+                                <span class="cert-badge-tag">Tax Compliance</span>
+                                <span class="cert-status-badge"><i class="fa-solid fa-certificate"></i> Official Accredited</span>
+                            </div>
+                            <h3>GST Registration</h3>
+                            <p class="cert-authority">Goods and Services Tax, Department of Revenue, Govt. of India</p>
+                        </div>
                     </div>
-                    <span class="cert-badge-tag">Commodity Board</span>
-                </div>
-                <h3>Spices Board India</h3>
-                <p class="cert-authority">Ministry of Commerce &amp; Industry, Government of India</p>
-                <div class="cert-code-container">
-                    <span class="cert-code-label">Standard Compliance</span>
-                    <div class="cert-code-value">
-                        <span>Quality &amp; Export Verified</span>
-                        <i class="fa-solid fa-circle-check cert-verified-icon" title="Verified"></i>
+                    <div class="cert-code-container">
+                        <span class="cert-code-label">GST No. / GSTIN</span>
+                        <div class="cert-code-value">
+                            <span>19AAYFD6407A1ZB</span>
+                            <span class="cert-copy-hint"><i class="fa-regular fa-copy"></i> Copy</span>
+                            <i class="fa-solid fa-circle-check cert-verified-icon" title="Verified"></i>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- GST Registration -->
-            <div class="cert-card">
-                <div class="cert-card-header">
-                    <div class="cert-logo-mark">
-                        <img src="images/logos/gst.png" alt="GST India Official Logo" class="cert-logo-img">
-                    </div>
-                    <span class="cert-badge-tag">Tax Compliance</span>
-                </div>
-                <h3>GST Registration</h3>
-                <p class="cert-authority">Goods and Services Tax, Department of Revenue, Govt. of India</p>
-                <div class="cert-code-container">
-                    <span class="cert-code-label">GST No. / GSTIN</span>
-                    <div class="cert-code-value">
-                        <span>19AAYFD6407A1ZB</span>
-                        <i class="fa-solid fa-circle-check cert-verified-icon" title="Verified"></i>
-                    </div>
-                </div>
             </div>
 
         </div>
